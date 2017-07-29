@@ -29,6 +29,11 @@ PhpBoot 框架较多的使用了 Annotation。当然原生 PHP 语言并不支�
 
 **分割参数、转义的语法和linux 命令行的语法类似**
 
+## 嵌套
+
+嵌套注释，用{}包围， 比如```@param int size {@v min:0|max:10}```
+
+
 
 
 

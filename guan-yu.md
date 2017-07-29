@@ -1,17 +1,58 @@
+# 安装PhpBoot
 
-[![Build Status](https://travis-ci.org/caoym/phprs-restful.svg)](https://travis-ci.org/caoym/phprs-restful) [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/caoym/phprs-restful/master/LICENSE)
+## 1. 安装 Composer
+PhpBoot 框架使用 Composer 来管理其依赖包。所以，在你使用 PhpBoot 之前，你必须确认在你电脑上是否安装了 Composer。
+```
+curl -s http://getcomposer.org/installer | php
+```
+## 2. 安装 PhpBoot
+完成 Composer 安装后，在你的项目目录下执行 composer，即可添加 PhpBoot 依赖。
 
-**PhpBoot**是专为开发RESTful API 设计的PHP框架。它设计的初衷是:
+```
+composer require "caoym/phpboot"
+```
+## 3. 环境需求
 
-1. 尽可能**简化API开发**:
+PhpBoot 框架有一些系统上的需求：
 
-如避免为开发API而在文档、接口定义、实现、数据库设计之间不停的重复和同步代码等;
-2. **更低的学习成本**:
+* PHP 版本 >= 5.5.9
+* APC 扩展启用
 
-如尽量遵循优秀的惯例, 尽可能扩展PHP原生能力, 避免不必要的抽象等;
-3. **更实用的功能**:
+```
+apc.enable=1
+```
 
-如Validation、ORM、文档生成、工作流引擎等。同时使用PhpBoot有助于提高代码质量,
-4. **更易于构建可扩展的应用**:
+* 如果启用了OPcache，应同时配置以下选项：
 
-如它引导面向接口的开发, 提倡强类型的编程方式, 提供依赖注入能力, 低侵入性的集成方式, 提供钩子机制等
+```
+opcache.save_comments=1
+opcache.load_comments=1
+```
+
+## 4. 配置WebServer
+为了使用PhpBoot，你需要配置 WebServer，将所有动态请求指向 index.php
+
+### Nginx
+
+若使用 Nginx ，修改你的项目对应的配置：
+
+```
+location / {
+try_files $uri $uri/ /index.php?$query_string;
+}
+```
+
+### Apache
+
+Apache 的配置稍微复杂，首先你需要启 mod_rewrite 模块，然后在 index.php 目录下添加 .htaccess 文件：
+
+```
+Options +FollowSymLinks
+RewriteEngine On
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^ index.php [L]
+```
+
+**注意：由于 WebServer 版本的差异， 以上配置可能不能按预期工作，但这是使用多数 PHP 框架第一步需要解决的问题， 网上有会有很多解决方案，用好搜索引擎即可**

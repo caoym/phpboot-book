@@ -32,7 +32,7 @@ opcache.load_comments=1
 ## 4. 配置WebServer
 为了使用PhpBoot，你需要配置 WebServer，将所有动态请求指向 index.php
 
-### Nginx
+### 4.1. Nginx
 
 若使用 Nginx ，修改你的项目对应的配置：
 
@@ -61,7 +61,7 @@ server {
 }
 ```
 
-### Apache
+### 4.2. Apache
 
 Apache 的配置稍微复杂，首先你需要启 mod_rewrite 模块，然后在 index.php 目录下添加 .htaccess 文件：
 

@@ -1,13 +1,22 @@
 # 参数校验
 
-@param 和 @var 支持嵌套校验
+在"参数绑定"时，起始已经支持了两项基本的校验（类型和是否必选），如果要支持更复杂的校验规则，可以通过 @v 指定，如：
 
-##语法 
+```
+/**
+ * @route GET /books/
+ * @param int $offsit {@v min:0}
+ * @param int $limit {@v min:1|max:100}
+ */
+public function getBooks($offsit=0, $limit=10)
+```
+## 1. 语法 
 
-```@v <rule>[:param]|<rule2>...``` 如
-```@v optional|min:0|max:10```
+```@v <rule>[:param0[,param1...]][|<rule2>...]```
+* 多个规则间用```|```分割。
+* 规则和其参数间用```:```分割, 如果有多个参数，参数间用```,```分割。
 
-## 支持的规则
+## 2. 支持的规则
 
 * required - Required field
 * equals - Field must match another field (email/password confirmation)
@@ -39,5 +48,4 @@
 * dateAfter - Field is a valid date and is after the given date
 * contains - Field is a string and contains the given string
 * creditCard - Field is a valid credit card number
-* instanceOf - Field contains an instance of the given class
 * optional - Value does not need to be included in data array. If it is however, it must pass validation.

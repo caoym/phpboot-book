@@ -48,7 +48,7 @@ return [
                 ->parameter('username', \DI\get('Books.DB.username'))
                 ->parameter('password', \DI\get('Books.DB.password'))
                 ->parameter('options', \DI\get('Books.DB.options')),
-    Books::class->DI\object()
+    Books::class=>DI\object()
                 ->constructorParameter('db', \DI\get('Books.DB')),       
 ];
 ```

@@ -14,8 +14,8 @@
 * [高级功能](gao-ji-gong-neng.md)
   * [ORM](ji-ben-te-xing/orm.md)
   * [Hook](ji-ben-te-xing/hook.md)
-  * [文档输出](ji-ben-te-xing/wen-dang-shu-chu.md)
   * [自定义 Annotation\(待完善...\)](ji-ben-te-xing/zi-ding-yi-annotation.md)
   * [分布式\(待完善...）](ji-ben-te-xing/fen-bu-shi.md)
   * [工作流\(待完善...）](ji-ben-te-xing/gong-zuo-liu.md)
+* [文档输出](ji-ben-te-xing/wen-dang-shu-chu.md)
 

@@ -28,7 +28,8 @@ class Books
     {
         $this->db = $db;
     }
-   
+    ...
+}
 ```
 
 ### 1.3. 多个数据库
@@ -51,10 +52,6 @@ return [
                 ->constructorParameter('db', \DI\get('Books.DB')),       
 ];
 ```
-
-
-
-
 
 ## 2. 语法
 

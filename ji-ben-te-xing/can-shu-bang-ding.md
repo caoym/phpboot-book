@@ -14,7 +14,6 @@
  * @route GET /books/
  */
 public function getBooks($offsit, $limit)
-
 ```
 上述代码，对应的 http 请求形式为 ```GET /books/?offsit=0&limit=10```。在此默认请求下：
 
@@ -47,7 +46,60 @@ public function getBooks($offsit, $limit)
 ```
 以上代码，除了绑定变量外，还指定了变量类型，即如果输入值无法转换成 int，将返回 400 BadRequest 错误。未指定@param 时，参数的类型默认为 mixed。
 
-### 1.3. 参数默认值
+### 1.3. 输入对象参数
+
+输入参数除了是原生类型外，还可以是对象（这里我们把只有属性和 get、set 方法的对象，成为实体（Entity））。如：
+
+```
+/**
+ * @route POST /books/
+ * @param Book $book {@bind request.request} 将$_POST 内容转换成Book实例
+ */
+public function createBook(Book $bok)
+```
+
+其中 Book 的的定义：
+
+```
+/**
+ * 图书信息
+ */
+class Book
+{
+    /**
+     * @var int
+     * @v optional
+     */
+    public $id;
+    /**
+     * 书名
+     * @var string
+     */
+    public $name='';
+
+    /**
+     * 简介
+     * @var string
+     * @v lengthMax:200
+     */
+    public $brief='';
+
+    /**
+     * 图片url
+     * @var string[]
+     */
+    public $pictures=[];
+}
+```
+框架对 http 请求到实体的转换，有一套自己的逻辑：
+* @var 指定属性的类型，如果类型不匹配，实例化将抛出 InvalidArgumentException 异常
+* 如果不标注 @var，则默认类型为mixed
+* 如果属性有默认值，表示此属性可选，否则认为此属性必选
+* 支持 @v 定义校验规则
+* 实体可以嵌套
+
+
+### 1.4. 参数默认值
 
 如果想指定某个输入参数可选，只需给方法参数设置一个默认值。比如:
 

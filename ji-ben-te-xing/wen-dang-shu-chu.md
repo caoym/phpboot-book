@@ -9,7 +9,11 @@ Swagger 是流行的 HTTP API 描述规范，同时 Swagger 官方还提供了�
 如需开启 Swagger 文档，只需在在 Application 初始化时 添加以下代码：
 
 ```
-PhpBoot\Docgen\DocgenProvider::register($app);
+PhpBoot\Docgen\Swagger\SwaggerProvider::register($app , function(Swagger $swagger){
+    $swagger->host = 'example.com';
+    $swagger->info->description = 'this is the description of the apis';
+    ...
+});
 ```
 
 然后访问你的项目 url+/docs/swagger.json```如( http://localhost/docs/swagger.json)```，即可获取 json 格式的 Swagger 文档。

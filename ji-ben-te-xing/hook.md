@@ -50,7 +50,7 @@ class BasicAuth implements HookInterface
 /**
  * @route POST /books/
  * @param Book $book {@bind request.request}
- * @hook \App\Hooks\BasicAuth 指定此接口
+ * @hook \App\Hooks\BasicAuth 指定此接口需要BasicAuth校验
  */
 public function createBook(Book $bok)
 ```
@@ -64,4 +64,16 @@ Application::addRoute()、Application::loadRoutes*() 方法添加路由时，可
 ```
 $app->loadRoutesFromPath($path, [BaseAuth::class]);
 ```
+
+### 2.3. 设置全局 Hook
+
+Application::setGlobalHooks 用于设置全局 Hook， 如：
+
+```
+Application::setGlobalHooks([BaseAuth::class])；
+```
+
+全局 Hook 不依赖于是否存在路由，即就算没有请求对应的路由，全局 Hook 还是会被执行。
+
+关于 Hook 的更多细节， 可以参考\PhpBoot\Controller\Hooks\Cors的实现。
 

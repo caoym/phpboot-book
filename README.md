@@ -1,6 +1,6 @@
 # 关于 PhpBoot
 
-[![Build Status](https://travis-ci.org/caoym/phprs-restful.svg)](https://travis-ci.org/caoym/phprs-restful) [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/caoym/phprs-restful/master/LICENSE)
+[![Build Status](https://travis-ci.org/caoym/phpboot.svg)](https://travis-ci.org/caoym/phpboot) [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/caoym/phprs-restful/master/LICENSE)
 
 **PhpBoot**是专为开发RESTful API 设计的PHP框架。它设计的初衷是尽可能**简化API开发**，包括:
 

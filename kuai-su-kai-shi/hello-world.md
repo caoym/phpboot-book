@@ -1,8 +1,8 @@
-#示例
+# 2.4 示例
 
 下面将通过编写一个简单的图书管理系统接口，演示 PhpBoot 的使用。完整的示例可在[这里](https://github.com/caoym/phpboot-example)下载。
 
-## 1. 目录结构 
+## 2.4.1 目录结构 
 
 + app
     * Controllers
@@ -17,7 +17,7 @@
     + **index.php** _入口_
 + vendor _依赖包_
     
-## 2. 入口
+## 2.4.2 入口
 
 index.php 作为项目入口， 通常只需要指定配置文件和 Controllers 目录的路径即可。最终项目对外提供的接口， 由不同的 Controllers 的实现类提供。
 
@@ -35,7 +35,7 @@ $app->dispatch();
 
 ```
 
-## 3. 接口实现
+## 2.4.3 接口实现
 
 示例对外提供```GET /books/```接口，用于查找图书，发回图书列表。形式如下：
 
@@ -100,7 +100,7 @@ class Books
 \PhpBoot\model() 方法根据实体类Book()实例化 Model 对象，并提供基本的如 find、save、update、delete 等方法。
 
 
-## 4. 项目配置
+## 2.4.4 项目配置
 
 示例中用到了数据库， 通过 config.php 配置：
 

@@ -1,4 +1,4 @@
-# 关于 PhpBoot
+# 1.1 关于
 
 [![Build Status](https://travis-ci.org/caoym/phpboot.svg)](https://travis-ci.org/caoym/phpboot) [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/caoym/phprs-restful/master/LICENSE)
 

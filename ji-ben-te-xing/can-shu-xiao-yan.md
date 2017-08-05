@@ -1,4 +1,4 @@
-# 参数校验
+# 3.4 参数校验
 
 在"参数绑定"时，起始已经支持了两项基本的校验（类型和是否必选），如果要支持更复杂的校验规则，可以通过 @v 指定，如：
 
@@ -10,13 +10,13 @@
  */
 public function getBooks($offsit=0, $limit=10)
 ```
-## 1. 语法 
+## 3.4.1 语法 
 
 ```@v <rule>[:param0[,param1...]][|<rule2>...]```
 * 多个规则间用```|```分割。
 * 规则和其参数间用```:```分割, 如果有多个参数，参数间用```,```分割。
 
-## 2. 支持的规则
+## 3.4.2 支持的规则
 
 * required - Required field
 * equals - Field must match another field (email/password confirmation)

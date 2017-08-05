@@ -1,8 +1,8 @@
-# 数据库
+# 3.5 数据库
 
-## 1. 使用
+## 3.5.1 使用
 
-### 1.1. 配置
+### 3.5.1.1 配置
 
 在 App 的配置中指定配置，如：
 
@@ -15,7 +15,7 @@ return [
 ];
 ```
 
-### 1.2. 创建数据库连接实例
+### 3.5.1.2 创建数据库连接实例
 
 可通过依赖注入，获取数据库连接实例。如:
 
@@ -32,7 +32,7 @@ class Books
 }
 ```
 
-### 1.3. 多个数据库
+### 3.5.1.3 多个数据库
 
 有的时候，应用可能需要连接多个数据库。下面将展示如果给 Books 类单独指定数据库连接。
 
@@ -53,9 +53,9 @@ return [
 ];
 ```
 
-## 2. 语法
+## 3.5.2 语法
 
-### 2.1. SELECT
+### 3.5.2.1 SELECT
 
 ```PHP
 $res = $db->select('a, b')
@@ -69,7 +69,7 @@ $res = $db->select('a, b')
    ->get();
 ```
 
-### 2.2. UPDATE
+### 3.5.2.2 UPDATE
 
 ```PHP
 $rows = $db->update('table')
@@ -80,7 +80,7 @@ $rows = $db->update('table')
    ->exec()
    ->rows
 ```   
-### 2.3. INSERT
+### 3.5.2.3 INSERT
 
 ```PHP
 $newId = $db->insertInto('table')
@@ -89,7 +89,7 @@ $newId = $db->insertInto('table')
    ->lastInsertId()
 ```   
     
-### 3.4. DELETE
+### 3.5.2.4 DELETE
 
 ```PHP
 $rows = $db->deleteFrom('table')

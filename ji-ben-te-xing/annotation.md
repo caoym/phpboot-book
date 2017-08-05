@@ -1,4 +1,4 @@
-# 3.1 Annotation
+# Annotation
 
 PhpBoot 框架较多的使用了 Annotation。当然原生 PHP 语言并不支持此项特性，所以实际是通过Reflection提取注释并解析实现，类似很多主流 PHP 框架的做法（如 symfony、doctrine 等）。但又有所不同的是，主流的Annotation 语法基本沿用了 java 中的形式，如：
 
@@ -19,7 +19,7 @@ PhpBoot 框架较多的使用了 Annotation。当然原生 PHP 语言并不支�
 
 ```
 
-## 3.1.1 语法
+## 1. 语法
 
 ```@<name> [param0] [param1] [param2] ...```
 
@@ -29,7 +29,7 @@ PhpBoot 框架较多的使用了 Annotation。当然原生 PHP 语言并不支�
 
 **分割参数、转义的语法和linux 命令行的语法类似**
 
-## 3.1.2 嵌套
+## 2. 嵌套
 
 嵌套注释，用{}包围， 比如```@param int size {@v min:0|max:10}```
 

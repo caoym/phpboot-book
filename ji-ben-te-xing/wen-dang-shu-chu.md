@@ -1,6 +1,6 @@
-# 4.1 文档输出
+# 文档输出
 
-## 4.1.1 Swagger 文档
+## 1. Swagger 文档
 
 Swagger 是流行的 HTTP API 描述规范，同时 Swagger 官方还提供了丰富的工具，比如用于文档展示和接口测试的 Swagger UI， 相关资料请阅读[官方文档](https://swagger.io)。
 
@@ -22,6 +22,6 @@ PhpBoot\Docgen\Swagger\SwaggerProvider::register($app , function(Swagger $swagge
 
 然后访问你的项目 url+/docs/swagger.json```如( http://localhost/docs/swagger.json)```，即可获取 json 格式的 Swagger 文档。
 
-## 4.1.2 MarkDown 文档
+## 2. MarkDown 文档
 
 开发中...

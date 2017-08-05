@@ -1,7 +1,7 @@
-# 2.3 WebServer 配置
+# WebServer 配置
 为了使用PhpBoot，你需要配置 WebServer，将所有动态请求指向 index.php
 
-## 2.3.1 Nginx
+## 1. Nginx
 
 若使用 Nginx ，修改你的项目对应的配置：
 
@@ -30,7 +30,7 @@ server {
 }
 ```
 
-## 2.3.2 Apache
+## 2. Apache
 
 Apache 的配置稍微复杂，首先你需要启 mod_rewrite 模块，然后在 index.php 目录下添加 .htaccess 文件：
 

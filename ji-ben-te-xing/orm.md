@@ -59,22 +59,25 @@ $book->name = ...
 echo $book->id; //获取自增主键的值
 ```
 ### 2.2. 修改
+
+```
 $book = new Book();
 $book->id = ...
 ...
 
 \PhpBoot\model($this->db, $book)->update();
+```
 
 ### 2.3. 查找
 
 ```
-$book = \PhpBoot\model($this->db, Book::class)->find($id);
+$book = \PhpBoot\models($this->db, Book::class)->find($id);
 ```
 
 或者
 
 ```
-$books = \PhpBoot\model($this->db, Book::class)->where(['name'=>'PHP'])->get();
+$books = \PhpBoot\models($this->db, Book::class)->findWhere(['name'=>'PHP'])->get();
 ```
 
 ### 2.4. 删除

@@ -149,7 +149,7 @@ $ curl "http://localhost/books/1"
  * @route GET /books/
  * @param int $offsit
  * @param int $limit
- * @return Books[] {@bind response.content.books}
+ * @return Books[]
  */
 public function getBooks($offsit=0, $limit=10, &$total)
 {
@@ -164,7 +164,7 @@ curl 请求将得到以下结果
 $ curl "http://localhost/books"
 {
     "total": 1,
-    "books": [
+    "data": [
         {
             "name":null, 
             "desc":null
@@ -173,7 +173,7 @@ $ curl "http://localhost/books"
 }
 ```
 
-可以看到，$total 输出到了 http body 中。 
+可以看到，$total 输出到了 http body 中。 **注意：当接口存在引用参数时，接口的返回值将会被默认绑定到response.content.data，效果和声明{@bind response.content.data}一致。**
  
 ## 3. @bind
 
@@ -182,7 +182,7 @@ $ curl "http://localhost/books"
 ```
 /**
  * @route GET /books/
- * @return Books[] {@bind response.books}
+ * @return Books[] {@bind response.content.books}
  */
 public function getBooks($offsit=0, $limit=10, &$total)
 ```

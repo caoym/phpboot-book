@@ -1,6 +1,6 @@
 ## ORM
 
-目前 PhpBoot 提供最基本的 ORM 支持，包括：
+目前 PhpBoot 提供基本的 ORM 支持，包括：
 
 ## 1. 定义实体
 
@@ -18,18 +18,13 @@ class Book
      * @var int
      */
     public $id;
+    
     /**
      * 书名
      * @var string
      */
     public $name='';
-
-    /**
-     * 简介
-     * @var string
-     */
-    public $brief='';
-
+    
     /**
      * 图片url
      * @var string[]
@@ -46,9 +41,15 @@ class Book
 
 ## 2. 操作数据库
 
-PhpBoot 提供基本的 ORM 操作方法。
+PhpBoot 提供量个组方法，```model``` 和 ```models```, 分别用于操作实体“实例”和实体“类”。
 
-### 2.1. 添加
+### 2.1. model 方法
+
+```model()``` 方法用于操作实体“实例”，或者说操作单个实体对象。
+
+#### 2.1.1 create
+
+存储指定实体实例（对应 SQL 的 insert）
 
 ```
 $book = new Book();
@@ -58,7 +59,10 @@ $book->name = ...
 \PhpBoot\model($this->db, $book)->create();
 echo $book->id; //获取自增主键的值
 ```
-### 2.2. 修改
+
+#### 2.1.2 update
+
+更新实体对应的数据库记录（对应 SQL 的 update）
 
 ```
 $book = new Book();
@@ -68,22 +72,73 @@ $book->id = ...
 \PhpBoot\model($this->db, $book)->update();
 ```
 
-### 2.3. 查找
+#### 2.1.3 delete
+
+删除实体对应的数据库记录（对应 SQL 的 delete ）
+
+```
+$book = new Book();
+$book->id = ...
+
+\PhpBoot\model($this->db, book)->delete();
+```
+
+### 2.2 models 方法
+
+```models()``` 方法用于操作实体“类”，或者说操作一组实体。
+
+#### 2.2.1. find
+
+根据主键查找（对应 SQL 的 select ）
 
 ```
 $book = \PhpBoot\models($this->db, Book::class)->find($id);
 ```
 
-或者
+#### 2.2.2. findWhere
+
+根据组合查询条件查找（对应 SQL 的 select ）
 
 ```
-$books = \PhpBoot\models($this->db, Book::class)->findWhere(['name'=>'PHP'])->get();
+$books = \PhpBoot\models($this->db, Book::class)
+    ->findWhere(['name'=>'abc'])
+    ->get();
 ```
 
-### 2.4. 删除
+#### 2.2.3. update
+
+根据主键更新（对应 SQL 的 update ）
 
 ```
-\PhpBoot\model($this->db, $book)->delete();
+\PhpBoot\models($this->db, Book::class)
+    ->update(1， ['name'=>'abc']);
 ```
 
+#### 2.2.4. updateWhere
 
+根据组合查询条件更新（对应 SQL 的 update ）
+
+```
+\PhpBoot\models($this->db, Book::class)
+    ->updateWhere(['name'=>'abc'], ['id'=>1])
+    ->exec();
+```
+
+#### 2.2.6. delete
+
+根据主键删除（对应 SQL 的 delete ）
+
+```
+\PhpBoot\models($this->db, Book::class)
+    ->delete(1);
+```
+
+#### 2.2.7. deleteWhere
+
+根据组合查询条件删除（对应 SQL 的 delete ）
+
+```
+\PhpBoot\models($this->db, Book::class)
+    ->deleteWhere(['id'=>1])
+    ->exec();
+```

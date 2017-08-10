@@ -97,3 +97,13 @@ $rows = $db->deleteFrom('table')
    ->exec()
    ->rows
 ```
+
+### 2.5. 存储过程
+
+```PHP
+$db->transaction(
+	function(DB $db){
+		$db->...;
+	}
+);
+```
